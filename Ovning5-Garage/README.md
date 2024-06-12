@@ -45,21 +45,21 @@ implementationen är klar om man tycker den här delen är svår)
 ### Kravspecifikation
 
 Fordonen ska implementeras som klassen **Vehicle** och subklasser till den.
-● **Vehicle** innehåller samtliga egenskaper som ska finnas i samtliga fordonstyper.
+- **Vehicle** innehåller samtliga egenskaper som ska finnas i samtliga fordonstyper.
 T.ex. registreringsnummer, färg, antal hjul och andra egenskaper ni kan komma på.
-● Registreringsnumret är unikt
-● Det måste minst finnas följande subklasser:
-○ **Airplane**
-○ **Motorcycle**
-○ **Car**
-○ **Bus**
-○ **Boat**
-● Dessa skall implementera minst en egen egenskap var, t.ex:
-○ _Number of Engines_
-○ _Cylinder volume_
-○ _Fueltype (Gasoline/Diesel)_
-○ _Number of seats_
-○ _Lenght_
+- Registreringsnumret är unikt
+- Det måste minst finnas följande subklasser:
+	- **Airplane**
+	- **Motorcycle**
+	- **Car**
+	- **Bus**
+	- **Boat**
+- Dessa skall implementera minst en egen egenskap var, t.ex:
+	- _Number of Engines_	
+	- _Cylinder volume_
+	- _Fueltype (Gasoline/Diesel)_
+	- _Number of seats_
+	- _Lenght_
 
 Själva garaget ska implementeras som en generisk samling av fordon:
 
