@@ -1,17 +1,15 @@
-# C# Övning 5 - Garage 1.
+# C# Övning 5 - Garage
 
-_OBS - Resultatet av övningen skall visas för lärare och godkännas innan den kan anses vara genomförd._
+*OBS - Resultatet av övningen skall visas för lärare och godkännas innan den kan anses vara genomförd.*
 
 ## Ett första övergripande projekt
 
-För att koppla samman mycket av det ni lärt er, så skall vi nu bygga en garage applikation.
 Denna applikation skall tillhandahålla den funktionalitet som ett system kan behöva om
-det skall användas för att simulera ett enkelt garage. Det skall alltså gå att parkera fordon,
-hämta ut fordon, se efter vilka fordon som finns där och vilka egenskaper de har. Allt detta
-i en konsol applikation med huvudmeny och undermenyer.
+det skall användas för att simulera ett enkelt garage. 
+Det skall alltså gå att parkera fordon, hämta ut fordon, se efter vilka fordon som finns där och vilka egenskaper de har. 
+Allt detta i en konsol applikation med huvudmeny och undermenyer.
 
-Anledningen till att ni skall programmera ett garage är att det är enkelt att förankra
-uppdelningen i det hela. Vi kan huvudsakligen dela upp ett garage i följande delar:
+Vi kan huvudsakligen dela upp ett garage i följande delar:
 
 **Garaget** : En representation av själva byggnaden. Garaget är en plats där en mängd av
 fordon kan förvaras. Garaget kan alltså representeras som en samling av fordon.
@@ -19,27 +17,28 @@ fordon kan förvaras. Garaget kan alltså representeras som en samling av fordon
 **Fordon** : Bilar, motorcyklar, enhjulingar eller vad för typ av fordon man nu vill ställa in i
 garaget.
 
-Dessa är de två “objekttyper” som man ser i ett fysiskt garage. Men tittar vi närmare bör
-det också finnas subklasser till fordon, alltså att varje fordonstyp är en egen subklass i
-systemet. Utöver detta krävs det funktionalitet som hanterar att fordon ställs in i garaget,
-att fordon kan tas ut ur garaget, samt att vi kan få en presentation av vad som finns i
-garaget och söka i det.
+Dessa är de två “objekttyper” som man ser i ett fysiskt garage. 
+Men tittar vi närmare bör det också finnas subklasser till fordon, alltså att varje fordonstyp är en egen subklass i
+systemet. 
+Utöver detta krävs det funktionalitet som hanterar att fordon ställs in i garaget,
+att fordon kan tas ut ur garaget, samt att vi kan få en presentation av vad som finns i garaget och söka i det.
 
-I mer programmerings vänliga termer skall vi alltså som **minimum** ha:
+> I mer programmerings vänliga termer skall vi alltså som **minimum** ha:
 
-```
-● En kollektion av fordon; klassen Garage.
-● En fordonsklass, klassen Vehicle.
-● Ett antal subklasser till fordon.
-● Ett användargränssnitt som låter oss använda funktionaliteten hos ett garage. Här
-sker all interaktion med användaren.
-● En GarageHandler. För att abstrahera ett lager så att det inte finns någon direkt
+```	
+- En kollektion av fordon; klassen Garage.
+- En fordonsklass, klassen Vehicle.
+- Ett antal subklasser till fordon.
+- Ett användargränssnitt som låter oss använda funktionaliteten hos ett garage. 
+Här sker all interaktion med användaren.
+- En GarageHandler. För att abstrahera ett lager så att det inte finns någon direkt
 kontakt mellan användargränssnittet och garage klassen. Detta görs lämpligen
 genom en klass som hanterar funktionaliteten som gränssnittet behöver ha
 tillgång till.
-● Vi programmerar inte direkt mot konkreta typer så vi använder oss av Interfaces
+- Vi programmerar inte direkt mot konkreta typer så vi använder oss av Interfaces
 för det tex IUI, IHandler, IVehicle. (Tips är att bryta ut till interface när
 implementationen är klar om man tycker den här delen är svår)
+
 ```
 
 ### Kravspecifikation
@@ -89,31 +88,31 @@ Vi ska **EJ** använda oss av en **List<Vehicle>** internt i Garage klassen!!!!
 ### Funktionalitet
 
 Det ska gå att:
-● Lista samtliga parkerade fordon
-● Lista fordonstyper och hur många av varje som står i garaget
-● Lägga till och ta bort fordon ur garaget
-● Sätta en kapacitet (antal parkeringsplatser) vid instansieringen av ett nytt garage
-● Möjlighet att populera garaget med ett antal fordon från start.
-● Hitta ett specifikt fordon via registreringsnumret. Det ska gå fungera med både
+- Lista samtliga parkerade fordon
+- Lista fordonstyper och hur många av varje som står i garaget
+- Lägga till och ta bort fordon ur garaget
+- Sätta en kapacitet (antal parkeringsplatser) vid instansieringen av ett nytt garage
+- Möjlighet att populera garaget med ett antal fordon från start.
+- Hitta ett specifikt fordon via registreringsnumret. Det ska gå fungera med både
 ABC123 samt Abc123 eller AbC123.
-● Söka efter fordon utifrån en egenskap eller flera (alla möjliga kombinationer från
+- Söka efter fordon utifrån en egenskap eller flera (alla möjliga kombinationer från
 basklassen **Vehicle** ). Exempelvis:
-○ _Alla svarta fordon med fyra hjul._
-○ _Alla motorcyklar som är rosa och har 3 hjul._
-○ _Alla lastbilar_
-○ _Alla röda fordon_
-● Användaren ska få feedback på att saker gått bra eller dåligt. Till exempel när vi
+	- _Alla svarta fordon med fyra hjul._
+	- _Alla motorcyklar som är rosa och har 3 hjul._
+	- _Alla lastbilar_
+	- _Alla röda fordon_
+- Användaren ska få feedback på att saker gått bra eller dåligt. Till exempel när vi
 parkerat ett fordon vill vi få en bekräftelse på att fordonet är parkerat. Om det inte
 går vill användaren få veta varför.
 
 Programmet ska vara en konsolapplikation med ett textbaserat användargränssnitt.
 
 Från gränssnittet skall det gå att:
-● Navigera till **samtlig** funktionalitet från garage via gränssnittet
-● Skapa ett garage med en användar specificerad storlek
-● Det skall gå att stänga av applikationen från gränssnittet
+- Navigera till **samtlig** funktionalitet från garage via gränssnittet
+- Skapa ett garage med en användar specificerad storlek
+- Det skall gå att stänga av applikationen från gränssnittet
 
-Applikationen skall fel hantera indata på ett robust sätt, så att den **inte kraschar** vid
+Applikationen skall felhantera indata på ett robust sätt, så att den **inte kraschar** vid
 felaktig inmatning eller användning.
 
 ## Unit testing
