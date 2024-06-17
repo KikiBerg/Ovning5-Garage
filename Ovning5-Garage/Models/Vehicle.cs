@@ -14,7 +14,7 @@ namespace Ovning5_Garage.Models
         public string Colour { get; set; }
         public int NumOfWheels { get; set; }
 
-        // Konstruktor för att skapa ett nytt fordonobjekt
+        // Konstruktor för att skapa ett nytt fordonsobjekt
         public Vehicle(string registrationNumber, string colour, int numOfWheels) 
         {
             // Här tilldelar jag de angivna värdena till fordonets egenskaper
