@@ -11,7 +11,7 @@ namespace Ovning5_Garage.Models
         //Deklarera unika egenskaper för Bus
         public int NumOfSeats { get; set; }
 
-        // Konstruktor för bussklassen som tar registreringsnummer, färg, antal hjul och antal sittplatser som parametrar
+        // Konstruktor för Bus som tar registreringsnummer, färg, antal hjul och antal sittplatser som parametrar
         public Bus(string registrationNumber, string colour, int numOfWheels, int numOfSeats) : base(registrationNumber, colour, numOfWheels) // Anropa basklassens konstruktor för att initialisera gemensamma attribut
         {
             // Initialisera den unika attributen för Bus
