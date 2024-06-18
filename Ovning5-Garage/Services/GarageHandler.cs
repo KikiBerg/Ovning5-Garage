@@ -25,6 +25,19 @@ namespace Ovning5_Garage.Services
             Console.WriteLine($"Garage skapad med kapacitet: {capacity}");
         }
 
+        // Metod för att lägga till ett fordon i garagen
+        public void AddVehicle(Vehicle vehicle)
+        {
+            if (garage.AddVehicle(vehicle)) // Försöker lägga till fordonet i garagen
+            {
+                Console.WriteLine($"Fordon med registreringsnummer {vehicle.RegistrationNumber} har lagts till.");
+            }
+            else
+            {
+                Console.WriteLine("Garaget är full, det är inte möjligt att lägga till fordon.");
+            }
+        }
+
 
 
 
