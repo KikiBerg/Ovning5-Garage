@@ -89,7 +89,17 @@ namespace Ovning5_Garage.Services
             return GetEnumerator();
         }
 
+        // Metod för att få kapaciteten på garaget
+        public int GetCapacity()
+        { 
+            return capacity;
+        }
 
+        // Metod för att få antalet fordon i garaget
+        public int GetCount()
+        {
+            return count;
+        }
 
 
     }

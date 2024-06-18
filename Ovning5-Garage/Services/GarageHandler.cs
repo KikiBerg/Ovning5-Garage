@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ovning5_Garage.Models;
+using System.Collections;
 
 namespace Ovning5_Garage.Services
 {
-    internal class GarageHandler
+    public class GarageHandler
     {
+
     }
 }
