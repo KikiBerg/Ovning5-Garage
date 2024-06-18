@@ -7,6 +7,13 @@ using Ovning5_Garage.Models;
 
 namespace Ovning5_Garage.Services
 {
+
+    /*
+     * Denna klass representerar samling av olika fordon
+     * Den ska vara generisk och begränsas till att bara acceptera typer som ärver från Vehicle
+     * Den ska implementera IEnumerable<T> för att möjliggöra iteration över fordonen
+     * Samlingen av fordon ska hanteras internt med hjälp av ett array
+     */
     public class Garage<T> : where T : Vehicle //Definiera en generisk klass som hanterar objekt av typ Vehicle
     {
         private T[] vehicles;   // Array för att lagra fordon
