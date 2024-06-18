@@ -17,6 +17,7 @@ namespace Ovning5_Garage.Services
     public class GarageHandler
     {
         private Garage<Vehicle> garage; // Anslag till en generisk garage för fordonstyper
+        
 
         // Metod för att skapa en ny garage med angiven kapacitet
         public void CreateGarage(int capacity)
@@ -52,6 +53,38 @@ namespace Ovning5_Garage.Services
             }
         }
 
+        // Metod för att lista alla fordon i garagen
+        public void ListAllVehicles()
+        {
+            foreach (var vehicle in garage) // Loopar igenom varje fordon i garagen
+            {
+                // Skriver ut fordonets typ, registreringsnummer, färg och antal hjul
+                Console.WriteLine($"{vehicle.GetType().Name}: {vehicle.RegistrationNumber}, {vehicle.Colour}, {vehicle.NumOfWheels} hjul");
+            }
+        }
+
+        // Metod för att visa hur många av varje typ av fordon som finns i garagen
+        public void ListVehicleTypesAndCounts()
+        {
+            Dictionary<string, int> vehicleCounts = new Dictionary<string, int>(); // Skapar en ny dictionary för att räkna antalet av varje fordonstyp
+            foreach (var vehicle in garage) // Loopar igenom varje fordon 
+            { 
+                string vehicleType = vehicle.GetType().Name; // Hämtar namnet på fordonstypen
+                if (vehicleCounts.ContainsKey(vehicleType)) // Kontrollerar om fordonstypen redan finns i dictionaryn
+                {
+                    vehicleCounts[vehicleType]++; // Ökar antalet av denna fordonstyp
+                }
+                else
+                {
+                    vehicleCounts[vehicleType] = 1; // Lägger till en ny post för denna fordonstyp med antalet 1
+                }
+            }
+
+            foreach (var keyValuePair in vehicleCounts) // Loopar igenom varje post i dictionaryn
+            {
+                Console.WriteLine($"{keyValuePair.Key}: {keyValuePair.Value}"); // Skriver ut fordonstypen och antalet av den
+            }
+        }
 
 
     }
