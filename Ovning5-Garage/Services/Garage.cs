@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,6 +82,11 @@ namespace Ovning5_Garage.Services
             {
                 yield return vehicles[i]; // Återlämnar varje fordon i turordning
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() // Alternativ implementering av IEnumerable interface för kompatibilitet med ic-generic metoder
+        {
+            return GetEnumerator();
         }
 
 
