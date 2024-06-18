@@ -16,7 +16,7 @@ namespace Ovning5_Garage.Services
 
     public class GarageHandler
     {
-        private Garage<Vehicle>? garage; // Anslag till en generisk garageskap för fordonstyper
+        private Garage<Vehicle> garage; // Anslag till en generisk garage för fordonstyper
 
         // Metod för att skapa en ny garage med angiven kapacitet
         public void CreateGarage(int capacity)
@@ -39,6 +39,18 @@ namespace Ovning5_Garage.Services
         }
 
 
+        // Metod för att ta bort ett fordon från garagen baserat på dess registreringsnummer
+        public void RemoveVehicle(string registrationNumber)
+        {
+            if (garage.RemoveVehicle(registrationNumber)) // Försöker ta bort fordonet från garagen
+            {
+                Console.WriteLine($"Fordon med registreringsnummer {registrationNumber} är borttaget.");
+            }
+            else
+            {
+                Console.WriteLine("Fordon kunde inte hittas eller tas bort.");
+            }
+        }
 
 
 
