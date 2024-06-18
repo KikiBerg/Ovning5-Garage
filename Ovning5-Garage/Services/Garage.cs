@@ -74,6 +74,14 @@ namespace Ovning5_Garage.Services
             return null; // Returnerar null om inget fordon hittades
         }
 
+        // Implementerar IEnumerable interface för att kunna iterera över fordon i garaget
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; i++) // Loopar alla fordon i garaget
+            {
+                yield return vehicles[i]; // Återlämnar varje fordon i turordning
+            }
+        }
 
 
 
