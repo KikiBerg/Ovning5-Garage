@@ -34,6 +34,30 @@ namespace Ovning5_Garage.Services
             return true; // Returnerar true vid lyckad parkering
         }
 
+        // Metod för att ta bort ett fordon från garaget baserat på registreringsnummer
+        public bool RemoveVehicle(string registrationNumber)
+        {
+            for (int i = 0; i < count; i++) // Loopar alla fordon i garaget
+            {
+                if (vehicles[i].RegistrationNumber.Equals(registrationNumber, StringComparison.OrdinalIgnoreCase)) // Kontrollerar om något fordon matchar det angivna registreringsnumret
+                {
+                    // Flyttar fordon för att fylla upp ledigt utrymme
+                    for (int j = i; j < count -1; j++)
+                    {
+                        vehicles[j] = vehicles[j+1];
+                    }
+                    vehicles[--count] = null; // Sätter det sista elementet i arrayen till null och minskar räknaren
+                    return true; // Returnerar true för att indikera att borttagningen lyckades
+                }
+            }
+            Console.WriteLine("Fordonet hittades inte");
+            return false; // Returnerar false vid misslyckat försök
+        }
+
+
+
+
+
 
 
     }
