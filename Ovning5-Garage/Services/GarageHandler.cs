@@ -87,5 +87,14 @@ namespace Ovning5_Garage.Services
         }
 
 
+        // Metod för att söka efter ett fordon i garagen baserat på dess registreringsnummer
+        public Vehicle FindVehicle(string registrationNumber)
+        {
+            return garage.FindVehicle(registrationNumber);// Söker efter fordonet i garagen och returnerar det
+        }
+
+
+
+
     }
 }
