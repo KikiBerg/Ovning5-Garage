@@ -54,7 +54,18 @@ namespace Ovning5_Garage.Services
             return false; // Returnerar false vid misslyckat försök
         }
 
-
+        // Metod för att hitta ett fordon i garaget baserat på registreringsnummer
+        public T FindVehicle(string registrationNumber)
+        {
+            foreach (T vehicle in vehicles) // Loopar alla fordon i garaget
+            {
+                if (vehicle!= null && vehicle.RegistrationNumber.Equals(registrationNumber, StringComparison.OrdinalIgnoreCase)) // Kontrollerar om något fordon matchar det angivna registreringsnumret
+                {
+                    return vehicle; // Returnerar det hittade fordonet
+                }
+            }
+            return null; // Returnerar null om inget fordon hittades
+        }
 
 
 
