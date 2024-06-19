@@ -78,14 +78,16 @@ namespace Ovning5_Garage.UI
             }
         }
 
+
+        // Metod för att lista alla fordon i garagen
         public void ListAllVehicles()
         {
-            throw new NotImplementedException();
+            _handler.ListAllVehicles();
         }
 
         public void ListVehicleTypesAndCounts()
         {
-            throw new NotImplementedException();
+            _handler.ListVehicleTypesAndCounts();
         }
 
         public void RemoveVehicle()
