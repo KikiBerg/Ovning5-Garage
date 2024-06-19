@@ -8,7 +8,7 @@ using Ovning5_Garage.Models;
 using System.Drawing;
 
 
-namespace Ovning5_Garage.UI
+namespace Ovning5_Garage.UserInterface
 {
     public class UI : IUI
     {
@@ -16,7 +16,7 @@ namespace Ovning5_Garage.UI
         private IHandler? _handler;
 
         // Konstruktor för att injicera IHandler-objektet
-        public UI(IHandler handler) 
+        public UI(IHandler handler)
         {
             _handler = handler;
         }
@@ -27,13 +27,13 @@ namespace Ovning5_Garage.UI
         {
             Console.WriteLine("Ange fordontypen (Flygplan, Motorcykel, Bil, Buss, Båt):");
             string type = Console.ReadLine();
-            
+
             Console.WriteLine("Ange registreringsnumret:");
             string registrationNumber = Console.ReadLine();
-            
+
             Console.WriteLine("Ange färgen:");
             string colour = Console.ReadLine();
-            
+
             Console.WriteLine("Ange antalet hjul:");
             int numOfWheels = int.Parse(Console.ReadLine());
 
@@ -42,7 +42,7 @@ namespace Ovning5_Garage.UI
             {
                 "flygplan" => new Airplane(registrationNumber, colour, numOfWheels, 2), // Standardantal motorer
                 "motorcykel" => new Motorcycle(registrationNumber, colour, numOfWheels, 1000), // Standard cylindervolym
-                "bil" => new Car(registrationNumber, colour, numOfWheels, "Bensin"), // Standard bränsletyp
+                "bil" => new Car(registrationNumber, colour, numOfWheels, "Bensin", false), // Standard bränsletyp
                 "buss" => new Bus(registrationNumber, colour, numOfWheels, 50), // Standardantal platser
                 "båt" => new Boat(registrationNumber, colour, numOfWheels, 30), // Standard längd
                 _ => null
@@ -64,9 +64,9 @@ namespace Ovning5_Garage.UI
         public void FindVehicle()
         {
             Console.WriteLine("Ange registreringsnumret för fordonet du vill hitta:");
-            
+
             string registrationNumber = Console.ReadLine();
-            
+
             var vehicle = _handler.FindVehicle(registrationNumber);
             if (vehicle != null)
             {
@@ -95,7 +95,7 @@ namespace Ovning5_Garage.UI
         public void RemoveVehicle()
         {
             Console.WriteLine("Ange registreringsnumret för fordonet du vill ta bort:");
-            
+
             string registrationNumber = Console.ReadLine();
             _handler.RemoveVehicle(registrationNumber);
         }
@@ -106,14 +106,14 @@ namespace Ovning5_Garage.UI
         {
             while (true)
             {
-                Console.Clear(); // Rensa konsolen innan varje menyvisning
+                
                 Console.WriteLine("Välkommen till Garaget!");
-                Console.WriteLine("Navigera genom menyn genom att ange en siffra\n(1, 2, 3, 4, 5, 0):");
+                Console.WriteLine("Navigera i menyn genom att ange en siffra\n(1, 2, 3, 4, 5, 0):");
                 Console.WriteLine("1. Lista alla parkerade fordon");
                 Console.WriteLine("2. Visa fordontyper och antal");
                 Console.WriteLine("3. Lägg till ett nytt fordon");
                 Console.WriteLine("4. Ta bort ett fordon");
-                Console.WriteLine("5. Hitta ett fordon baserat på registreringsnumret");                
+                Console.WriteLine("5. Hitta ett fordon baserat på registreringsnumret");
                 Console.WriteLine("0. Avsluta applikationen");
 
                 char input = ' ';
@@ -123,10 +123,10 @@ namespace Ovning5_Garage.UI
                 }
                 catch (IndexOutOfRangeException) // Om inget tecken har skickats
                 {
-                    Console.Clear() ;
+                    Console.Clear();
                     Console.WriteLine("Vänligen gör ett val!");
                 }
-                switch(input)
+                switch (input)
                 {
                     case '1':
                         ListAllVehicles();

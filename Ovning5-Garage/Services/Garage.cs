@@ -10,7 +10,7 @@ namespace Ovning5_Garage.Services
 {
 
      
-    public class Garage<T> : where T : Vehicle //Definiera en generisk klass som hanterar objekt av typ Vehicle
+    public class Garage<T> : IEnumerable<T> where T : Vehicle //Definiera en generisk klass som hanterar objekt av typ Vehicle
     {
         private T[] vehicles;   // Array för att lagra fordon
         private int capacity;   // Kapaciteten på garaget
