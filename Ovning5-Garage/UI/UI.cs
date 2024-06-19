@@ -106,7 +106,7 @@ namespace Ovning5_Garage.UI
         {
             while (true)
             {
-                Console.Clear();
+                Console.Clear(); // Rensa konsolen innan varje menyvisning
                 Console.WriteLine("Välkommen till Garaget!");
                 Console.WriteLine("Navigera genom menyn genom att ange en siffra\n(1, 2, 3, 4, 5, 0):");
                 Console.WriteLine("1. Lista alla parkerade fordon");
@@ -116,7 +116,48 @@ namespace Ovning5_Garage.UI
                 Console.WriteLine("5. Hitta ett fordon baserat på registreringsnumret");                
                 Console.WriteLine("0. Avsluta applikationen");
 
+                char input = ' ';
+                try
+                {
+                    input = Console.ReadLine()![0]; // Försöker få det första tecknet från användarens input
+                }
+                catch (IndexOutOfRangeException) // Om inget tecken har skickats
+                {
+                    Console.Clear() ;
+                    Console.WriteLine("Vänligen gör ett val!");
+                }
+                switch(input)
+                {
+                    case '1':
+                        ListAllVehicles();
+                        break;
+                    case '2':
+                        ListVehicleTypesAndCounts();
+                        break;
+                    case '3':
+                        AddVehicle();
+                        break;
+                    case '4':
+                        RemoveVehicle();
+                        break;
+                    case '5':
+                        FindVehicle();
+                        break;
+                    case '0':
+                        Environment.Exit(0);
+                        break;
+                    default: // Kontrollera om ett ogiltigt val har gjorts
+                        Console.WriteLine("Vänligen ange något av följande: (0, 1, 2, 3, 4, 5)");
+                        break;
+                }
+
+                // Återgår till huvudmenyn
+                Console.WriteLine("Tryck på vilket tangent som helst för att återvända till huvudmenyn.......");
+                Console.ReadKey();
             }
         }
+
+
+
     }
 }
