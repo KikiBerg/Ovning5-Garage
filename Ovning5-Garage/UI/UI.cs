@@ -100,9 +100,23 @@ namespace Ovning5_Garage.UI
             _handler.RemoveVehicle(registrationNumber);
         }
 
+
+        //Metod som visar menyn och hanterar input från användaren
         public void Start()
         {
-            throw new NotImplementedException();
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Välkommen till Garaget!");
+                Console.WriteLine("Navigera genom menyn genom att ange en siffra\n(1, 2, 3, 4, 5, 0):");
+                Console.WriteLine("1. Lista alla parkerade fordon");
+                Console.WriteLine("2. Visa fordontyper och antal");
+                Console.WriteLine("3. Lägg till ett nytt fordon");
+                Console.WriteLine("4. Ta bort ett fordon");
+                Console.WriteLine("5. Hitta ett fordon baserat på registreringsnumret");                
+                Console.WriteLine("0. Avsluta applikationen");
+
+            }
         }
     }
 }
