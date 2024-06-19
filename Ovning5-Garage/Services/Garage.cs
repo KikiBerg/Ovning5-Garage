@@ -75,8 +75,6 @@ namespace Ovning5_Garage.Services
         {
                       
            for (int i = 0; i < count; i++) // Loopar alla fordon i garaget
-
-
             {
                 if (vehicles[i] != null)
                 yield return vehicles[i]; // Återlämnar varje fordon i turordning
