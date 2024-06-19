@@ -58,13 +58,24 @@ namespace Ovning5_Garage.UI
                 Console.WriteLine("Ogiltig fordonstyp");
             }
 
-
-
         }
 
+        // Metod för att söka efter ett fordon i garagen baserat på dess registreringsnummer
         public void FindVehicle()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Ange registreringsnumret för fordonet du vill hitta:");
+            
+            string registrationNumber = Console.ReadLine();
+            
+            var vehicle = _handler.FindVehicle(registrationNumber);
+            if (vehicle != null)
+            {
+                Console.WriteLine($"{vehicle.GetType().Name}: {vehicle.RegistrationNumber}, {vehicle.Colour}, {vehicle.NumOfWheels} hjul");
+            }
+            else
+            {
+                Console.WriteLine("Fordonet hittades inte.");
+            }
         }
 
         public void ListAllVehicles()
