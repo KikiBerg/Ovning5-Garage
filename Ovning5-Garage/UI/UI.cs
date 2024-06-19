@@ -85,14 +85,19 @@ namespace Ovning5_Garage.UI
             _handler.ListAllVehicles();
         }
 
+        // Metod för att visa hur många av varje typ av fordon som finns i garagen
         public void ListVehicleTypesAndCounts()
         {
             _handler.ListVehicleTypesAndCounts();
         }
 
+        // Metod för att ta bort ett fordon från garagen baserat på dess registreringsnummer
         public void RemoveVehicle()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Ange registreringsnumret för fordonet du vill ta bort:");
+            
+            string registrationNumber = Console.ReadLine();
+            _handler.RemoveVehicle(registrationNumber);
         }
 
         public void Start()
