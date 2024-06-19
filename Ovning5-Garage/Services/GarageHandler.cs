@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ovning5_Garage.Models;
 using System.Collections;
+using Ovning5_Garage.Interfaces;
 
 namespace Ovning5_Garage.Services
 {
@@ -14,7 +15,7 @@ namespace Ovning5_Garage.Services
      * Den erbjuder metoder för att lägga till, ta bort, hitta och lista fordon i garaget. 
      */
 
-    public class GarageHandler
+    public class GarageHandler : IHandler
     {
         private Garage<Vehicle> garage; // Anslag till en generisk garage för fordonstyper
         
