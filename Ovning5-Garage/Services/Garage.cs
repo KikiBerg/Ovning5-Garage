@@ -98,11 +98,7 @@ namespace Ovning5_Garage.Services
             return count;
         }
 
-
     }
-
-
-
 
 }
 
