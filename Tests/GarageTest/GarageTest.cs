@@ -1,20 +1,35 @@
 using Xunit;
 using Ovning5_Garage.Services;
 using Ovning5_Garage.Models;
+using System;
+using System.Collections.Generic;
+
 
 
 namespace GarageTest
 {
+
+    public class Vehicle
+    {
+        public string? RegistrationNumber { get; set; }
+    }
+
+    public class Car : Vehicle { }
+
+
     public class GarageTest
     {
+
+        private Garage<Car> garage;
+
         [Fact]
         public void Constructor_InitializesCorrectly()
         {
             //-- Arrange
             int expectedCapacity = 25;
-            
+
             //-- Act
-            Garage<Vehicle> garage = new Garage<Vehicle>(expectedCapacity);
+            Garage<Vehicle> garage = new(expectedCapacity);
 
             //-- Assert
             Assert.Equal(expectedCapacity, garage.GetCapacity());
@@ -22,15 +37,19 @@ namespace GarageTest
 
         }
 
-        //[Fact]
-        //public void AddVehicle_ShouldReturnTrue_WhenGarageIsNotFull()
-        //{
-        //    // Arrange
+        [Fact]
+        public void AddVehicle_ShouldReturnTrue_WhenGarageIsNotFull()
+        {
+            // Arrange
+            var car = new Car { RegistrationNumber = "XYZ123" };
 
-        //    // Act
+            // Act
+            bool result = garage.AddVehicle(car);
 
-        //    // Assert
-        //}
+            // Assert
+            Assert.True(result);
+            Assert.Equal(1, garage.GetCount());
+        }
 
 
         //[Fact]
