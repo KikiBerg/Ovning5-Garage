@@ -21,6 +21,6 @@ namespace Ovning5_Garage.Interfaces
         void RemoveVehicle(string registrationNumber); // Metod för att ta bort ett fordon från garage baserat på registreringsnumret
         void ListAllVehicles(); // Metod för att lista alla fordon i garaschen
         void ListVehicleTypesAndCounts(); // Metod för att lista fordonstyper och deras antal
-        Vehicle FindVehicle(string registrationNumber); // Metod för att hitta ett fordon baserat på registreringsnumret
+        Vehicle? FindVehicle(string registrationNumber); // Metod för att hitta ett fordon baserat på registreringsnumret
     }
 }

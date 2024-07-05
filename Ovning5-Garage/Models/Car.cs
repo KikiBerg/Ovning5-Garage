@@ -20,7 +20,12 @@ namespace Ovning5_Garage.Models
             HasAirSuspension = hasAirSuspension;
         }
 
+        public override string ToString()
+        {
+            return $"{base.ToString()} Has air suspension: {HasAirSuspension}";
+        }
 
-      
+
+
     }
 }

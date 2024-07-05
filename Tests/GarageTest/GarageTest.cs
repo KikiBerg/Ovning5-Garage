@@ -17,7 +17,7 @@ namespace GarageTest
             Garage<Vehicle> garage = new Garage<Vehicle>(expectedCapacity);
 
             //-- Assert
-            Assert.Equal(expectedCapacity, garage.GetCapacity());
+            Assert.Equal(expectedCapacity, garage.Capacity);
             Assert.Empty(garage);
 
         }

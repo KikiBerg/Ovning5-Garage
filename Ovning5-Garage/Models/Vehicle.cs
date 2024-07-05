@@ -24,6 +24,11 @@ namespace Ovning5_Garage.Models
             NumOfWheels = numOfWheels;
         }
 
+        public override string ToString()
+        {
+            return $"{GetType().Name}: {RegistrationNumber}, {Colour}, {NumOfWheels} hjul";
+        }
+
 
     }
 }

@@ -21,7 +21,7 @@ namespace Ovning5_Garage.Services
 
         public GarageHandler(Garage<Vehicle> garage)
         {
-            this.garage = garage;
+            this.garage = garage ?? throw new ArgumentNullException(nameof(garage));
         }
 
 
@@ -65,7 +65,7 @@ namespace Ovning5_Garage.Services
             foreach (var vehicle in garage) // Loopar igenom varje fordon i garagen
             {
                 // Skriver ut fordonets typ, registreringsnummer, färg och antal hjul
-                Console.WriteLine($"{vehicle.GetType().Name}: {vehicle.RegistrationNumber}, {vehicle.Colour}, {vehicle.NumOfWheels} hjul");
+                Console.WriteLine(vehicle);
             }
         }
 
@@ -73,10 +73,10 @@ namespace Ovning5_Garage.Services
         public void ListVehicleTypesAndCounts()
         {
             
-            if (garage == null)
-            {
-                Console.WriteLine("Garaget är inte inställt.");
-            }
+            //if (garage == null)
+            //{
+            //    Console.WriteLine("Garaget är inte inställt.");
+            //}
 
             Dictionary<string, int> vehicleCounts = new Dictionary<string, int>(); // Skapar en ny dictionary för att räkna antalet av varje fordonstyp
             foreach (var vehicle in garage) // Loopar igenom varje fordon 
@@ -100,12 +100,23 @@ namespace Ovning5_Garage.Services
 
 
         // Metod för att söka efter ett fordon i garagen baserat på dess registreringsnummer
-        public Vehicle FindVehicle(string registrationNumber)
+        public Vehicle? FindVehicle(string registrationNumber)
         {
-            return garage.FindVehicle(registrationNumber);// Söker efter fordonet i garagen och returnerar det
+            return garage.FirstOrDefault(v => v.RegistrationNumber.Equals(registrationNumber, StringComparison.OrdinalIgnoreCase));// Söker efter fordonet i garagen och returnerar det
         }
 
+        public IEnumerable<Vehicle> Search(int? nrOfWeels, string colour, string type)
+        {
+            IEnumerable<Vehicle> result = type == "All" ? garage : garage.Where(v => v.GetType().Name == type);
 
+            if (!string.IsNullOrEmpty(colour))
+                result = result.Where(v => v.Colour == colour);
+
+            //forsätter vi
+
+
+            return result;
+        }
 
 
     }
